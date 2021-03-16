@@ -56,12 +56,19 @@ print(s5.find('one'))
 #first
 
 # Write a program that asks console input and searches for a query.
-console_input = input('pick a number between 1 and 10: ')
-num_list = [1, 3, 4, 7, 9]
+def validate_number(potential_number):
+  try:
+    return int(potential_number)
+  except Exception:
+    print('that is not a number')
+    return False
+
+console_input = validate_number(input('guess a number between 1 and 10: '))
+num_list = [1, 3, 4, 7, 9, 3, 7]
 if console_input in num_list:
   print('that number is on the list')
 else:
-  print('that number is not on the list')
+  print('not on the list')
 
 # Create a list of words and join them, like the example above.
 separator = ' '
@@ -81,3 +88,44 @@ print(article_split)
 # Make a program that prints 3 random numbers.
 gen_random_nums(3)
 
+# Create a program that generates 100 random numbers and find the frequency of each number.
+def gen_num_list(n):
+  random_num_list = []
+  for num in range(n):
+    random_num_list.append(random.randint(-50, 50))
+  return random_num_list
+
+def random_occurence_count(input_list):
+  count_totals = dict()
+  for num in input_list:
+    count_totals[num] = count_totals.setdefault(num, 0) + 1
+  return count_totals
+
+def print_dictionary_contents(input_dict):
+  print(input_dict.items())
+
+print_dictionary_contents(random_occurence_count(gen_num_list(100)))
+
+# Make a program that asks a phone number.
+# Make a program that asks the users preferred programming language.
+digits = input('what is your phone number?')
+language_preference = input('what is your favorite programming language?')
+print('your favorite programming language is {0} \n your phone number is {1}'.format(language_preference, digits))
+
+# Make a program that asks the number between 1 and 10. If the number is out of range the program should display “invalid number”.
+answer = validate_number(input('pick a number between 1 and 10 '))
+if answer is False or answer <= 1 or answer >= 10:
+  print('invalid number')
+else:
+  print('good job! you know some numbers')
+
+# Make a program that asks a password.
+def password_match():
+  password_input = input('create a password: ')
+  confirm = input('re-enter you password: ')
+  if password_input == confirm:
+    print('password successfully created')
+  else:
+    print('passwords do not match')
+
+password_match()
