@@ -7,11 +7,11 @@ print('romell')
 print('I stay out too late \n Got nothing in my brain \n That\'s what people say \n That\'s what people say')
 
 # Make a program that displays several numbers.
-def gen_random_nums(n):
+def print_random_nums(n):
   for number in range(n):
     print(random.randint(-100, 100))
 
-gen_random_nums(5)
+print_random_nums(5)
 
 # Make a program that solves and shows the summation of 64 + 32.
 def print_sum(a, b):
@@ -86,7 +86,7 @@ article_split = phrase.split('sleep till')
 print(article_split)
 
 # Make a program that prints 3 random numbers.
-gen_random_nums(3)
+print_random_nums(3)
 
 # Create a program that generates 100 random numbers and find the frequency of each number.
 def gen_num_list(n):
@@ -129,3 +129,96 @@ def password_match():
     print('passwords do not match')
 
 password_match()
+
+# Make a program that lists the countries in the set
+def print_list(list_input):
+  for elem in list_input:
+    print(elem)
+
+clist = ['Canada','USA','Mexico','Australia']
+print_list(clist)
+
+# Create a loop that counts from 0 to 100
+def count_up(start, exclusive_limit):
+  arr = []
+  for i in range(start, exclusive_limit):
+    arr.append(i)
+  return arr
+
+print_list(count_up(0, 101))
+
+# Make a multiplication table using a loop
+for i in range(1, 11):
+  for j in range(1, 11):
+    res = i * j
+    print('{0} x {1} = {2}'.format(i, j, res))
+
+# Output the numbers 1 to 10 backwards using a loop
+def reverse_list(list_input):
+  list_output = []
+  if len(list_input) > 1:
+    index = len(list_input) - 1
+  else:
+    index = -1
+  while index >= 0:
+    list_output.append(list_input[index])
+    index -= 1
+  return list_output
+
+print_list(reverse_list(count_up(1, 11)))
+
+# Create a loop that counts all even numbers to 10
+def gen_even_nums(start, exclusive_limit):
+  list_output = []
+  for num in range(start, exclusive_limit):
+    if num % 2 == 0:
+      list_output.append(num)
+  return list_output
+
+print_list(gen_even_nums(0, 11))
+
+# Create a loop that sums the numbers from 100 to 200
+def sum_list(list_input):
+  res = 0
+  for num in list_input:
+    res += num
+  return [res]
+
+print_list(sum_list(count_up(100, 201)))
+
+# Make a program that lists the countries in the set below using a while loop.
+def while_list_iter(list_input, rev = False):
+  if len(list_input) > 0 and rev is False:
+    start = 0
+    end = len(list_input) - 1
+    incrementor = 1
+  else:
+    start = len(list_input) - 1
+    end = 0
+    incrementor = -1
+  while start != end:
+    print(list_input[start])
+    start += incrementor
+
+while_list_iter(clist)
+
+# What‟s the difference between a while loop and a for loop?
+# incrementor is not initialized automatically in while LookupError
+
+# Can you sum numbers in a while loop?
+# yes
+
+# Can a for loop be used inside a while loop?
+# yes
+
+# Make a function that sums the list mylist = [1,2,3,4,5]
+sum_list(count_up(1, 6))
+
+# Can functions be called inside a function?
+# yes
+
+# Can a function call itself? (hint: recursion)
+# yes
+
+# Can variables defined in a function be used in another function? (hint: scope)
+# yes by using the keyword 'global'
