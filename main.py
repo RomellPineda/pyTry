@@ -92,7 +92,7 @@ print_random_nums(3)
 def gen_num_list(n):
   random_num_list = []
   for num in range(n):
-    random_num_list.append(random.randint(-50, 50))
+    random_num_list.append(random.randint(-101, 101))
   return random_num_list
 
 def random_occurence_count(input_list):
@@ -102,7 +102,8 @@ def random_occurence_count(input_list):
   return count_totals
 
 def print_dictionary_contents(input_dict):
-  print(input_dict.items())
+  for key, val in input_dict.items():
+    print('{0} : {1}'.format(key, val))
 
 print_dictionary_contents(random_occurence_count(gen_num_list(100)))
 
@@ -168,14 +169,14 @@ def reverse_list(list_input):
 print_list(reverse_list(count_up(1, 11)))
 
 # Create a loop that counts all even numbers to 10
-def gen_even_nums(start, exclusive_limit):
+def gen_odd_or_even(start, exclusive_limit, remainder = 0):
   list_output = []
   for num in range(start, exclusive_limit):
-    if num % 2 == 0:
+    if num % 2 == remainder:
       list_output.append(num)
   return list_output
 
-print_list(gen_even_nums(0, 11))
+print_list(gen_odd_or_even(0, 11))
 
 # Create a loop that sums the numbers from 100 to 200
 def sum_list(list_input):
@@ -222,3 +223,81 @@ sum_list(count_up(1, 6))
 
 # Can variables defined in a function be used in another function? (hint: scope)
 # yes by using the keyword 'global'
+
+# Make a program that displays the states in the U.S.
+states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+print_list(states)
+
+# Display all states starting with the letter M
+m_states = lambda x : x[0].lower() == 'm'
+
+def apply_to_list(input_list, condition):
+  list_output = []
+  for elem in input_list:
+    if condition(elem):
+      list_output.append(elem)
+  return list_output
+
+print_list(apply_to_list(states, m_states))
+
+# Given the list y = [6,4,2] add the items 12, 8 and 4.
+y = [6,4,2]
+def add_to_list(list_input, *items):
+  list_output = list_input
+  for item in items:
+    list_output.append(item)
+  return list_output
+
+print(add_to_list(y, 12, 8, 4))
+
+# Change the 2nd item of the list to 3.
+y[1] = 3
+print(y)
+
+# Given a list with pairs, sort on the first element
+x = [ (3,6),(4,7),(5,9),(8,4),(3,1)]
+first_elem = lambda x : x[0]
+
+def sort_by_elem(list_input, condition):
+  return sorted(list_input, key = condition)
+
+print(sort_by_elem(x, first_elem))
+
+# Now sort on the second element
+second_elem = lambda x : x[1]
+print(sort_by_elem(x, second_elem))
+
+# Create a list of one thousand numbers
+list_1000 = gen_num_list(1000)
+print(list_1000)
+
+# Get the largest and smallest number from that list
+def find_in_list(list_input, condition = 'largest'):
+  sorted_list = sorted(list_input)
+  if condition == 'largest':
+    return sorted_list[-1]
+  else:
+    return sorted_list[0]
+
+print('the largest number in list is {0}'.format(find_in_list(list_1000)))
+print('the smallest number in list is {0}'.format(find_in_list(list_1000, 'smallest')))
+
+# Create two lists, an even and odd one.
+print(gen_odd_or_even(0, 25))
+print(gen_odd_or_even(0, 25, 1))
+
+# Make a mapping from countries to country short codes
+countries = {
+  'Afghanistan' : 'AF',
+  'Brazil' : 'BR',
+  'China' : 'CN',
+  'France' : 'FR',
+  'Great Britain' : 'GB',
+  'Germany' : 'DE',
+  'Mexico' : 'MX',
+  'Philippines' : 'PH',
+  'United States of America' : 'US'
+}
+
+# Print each item (key and value)
+print_dictionary_contents(countries)
