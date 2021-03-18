@@ -1,3 +1,5 @@
+import datetime as dt
+import numpy as np
 import random
 
 # Make a Python program that prints your name.
@@ -301,3 +303,90 @@ countries = {
 
 # Print each item (key and value)
 print_dictionary_contents(countries)
+
+# Read a file and number every line
+file = open('fall.txt', 'r')
+i = 1
+for line in file:
+  print(i, ' ', line)
+  i += 1
+
+# Find out what the program does if the file doesn‟t exist.
+# FileNotFoundError: [Errno 2] No such file or directory
+
+# What happens if you create a file with another user and try to open it?
+# might not open
+
+# Write the text “Take it easy” to a file
+file = open('fall.txt', 'w')
+file.write('Take it easy')
+file.close()
+
+# Write the line open(“text.txt”) to a file
+file = open('fall.txt', 'a')
+file.write('open(“text.txt”)')
+file.close()
+
+# Given a tic-tac-toe board of 3x3, print every position
+tic_tac = [['X', 'O', 'O'], ['O', 'O', 'X'], ['X', 'X', 'O']]
+numpy_array = np.array(tic_tac)
+print(numpy_array)
+
+# Create a program where every person meets the other
+persons = ['John', 'Marissa', 'Pete', 'Dayton']
+for i in persons:
+  for j in persons:
+    if i != j:
+      print('{0} vs {1}'.format(i, j))
+
+# If a normal for loop finishes in n steps O(n), how many steps has a nested loop?
+# O(n^2)
+
+# Take a slice of the list below:
+pizzas = ['Hawaiian', 'Pepperoni', 'Fromaggi', 'Napolitana', 'Diavoli']
+take = slice(3, 4)
+print(pizzas[take])
+
+# Given the text “Hello World”, take the slice “World”
+s = 'Hello World'
+print(s[6:11])
+
+# Create a function that returns a,b and a+b
+def multi_ret(*args):
+  return args, sum(args)
+
+print(multi_ret(3, 7))
+
+# Create a function that returns 5 variables
+print(multi_ret(1, 2, 3, 4, 5))
+
+# Add a function reduce amount that changes the variable balance
+balance = 100
+def red_by(amount):
+  global balance
+  balance -= amount
+
+# Create a function with a local variable
+# see line 184 def sum_list()
+
+# Print the date in format year-month-day
+d = dt.datetime.now()
+print(d.strftime('%Y-%m-%d'))
+
+# Can try-except be used to catch invalid keyboard input?
+# yes see line 61 def validate_number(potential_number)
+
+# Can try-except catch the error if a file can‟t be opened?
+# yes
+
+# When would you not use try-except?
+# when you know your code won't break
+
+# Can you have more than one class in a file?
+# yes
+
+# Can multiple objects be created from the same class?
+# yes
+
+# Can objects create classes?
+# yes
