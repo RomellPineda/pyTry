@@ -16,20 +16,21 @@ def print_random_nums(n):
 print_random_nums(5)
 
 # Make a program that solves and shows the summation of 64 + 32.
-def print_sum(a, b):
-  res = a + b
-  print('the sum of {0} and {1} is {2}'.format(a, b, res))
+def get_sum(*args):
+  return sum(args)
 
-print_sum(64, 32)
+print(get_sum(64, 32))
 
 # Make a program that displays your favourite actor/actress.
 def fav_actor():
-  print('john krasinski')
+  return 'emily blunt'
 
-fav_actor()
+print(fav_actor())
 
 # Try to print the word 'lucky' inside s.
-s = 'My {0} number is {1}'.format('lucky', 4.13)
+word = 'lucky'
+num = 42
+s = f'My {word} number is {num}'
 print(s)
 
 # Try to print the day, month, year in the form “Today is 2/2/2016”.
@@ -105,7 +106,7 @@ def random_occurence_count(input_list):
 
 def print_dictionary_contents(input_dict):
   for key, val in input_dict.items():
-    print('{0} : {1}'.format(key, val))
+    print(f'{key} : {val}')
 
 print_dictionary_contents(random_occurence_count(gen_num_list(100)))
 
@@ -113,7 +114,7 @@ print_dictionary_contents(random_occurence_count(gen_num_list(100)))
 # Make a program that asks the users preferred programming language.
 digits = input('what is your phone number?')
 language_preference = input('what is your favorite programming language?')
-print('your favorite programming language is {0} \n your phone number is {1}'.format(language_preference, digits))
+print(f'your favorite programming language is {language_preference} \n your phone number is {digits}')
 
 # Make a program that asks the number between 1 and 10. If the number is out of range the program should display “invalid number”.
 answer = validate_number(input('pick a number between 1 and 10 '))
@@ -154,7 +155,7 @@ print_list(count_up(0, 101))
 for i in range(1, 11):
   for j in range(1, 11):
     res = i * j
-    print('{0} x {1} = {2}'.format(i, j, res))
+    print(f'{i} x {j} = {res}')
 
 # Output the numbers 1 to 10 backwards using a loop
 def reverse_list(list_input):
@@ -281,8 +282,8 @@ def find_in_list(list_input, condition = 'largest'):
   else:
     return sorted_list[0]
 
-print('the largest number in list is {0}'.format(find_in_list(list_1000)))
-print('the smallest number in list is {0}'.format(find_in_list(list_1000, 'smallest')))
+print(f'the largest number in list is {find_in_list(list_1000)}')
+print(f'the smallest number in list is {find_in_list(list_1000, "smallest")}')
 
 # Create two lists, an even and odd one.
 print(gen_odd_or_even(0, 25))
@@ -337,7 +338,7 @@ persons = ['John', 'Marissa', 'Pete', 'Dayton']
 for i in persons:
   for j in persons:
     if i != j:
-      print('{0} vs {1}'.format(i, j))
+      print(f'{i} vs {j}')
 
 # If a normal for loop finishes in n steps O(n), how many steps has a nested loop?
 # O(n^2)
