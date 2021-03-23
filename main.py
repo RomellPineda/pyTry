@@ -1,3 +1,4 @@
+from getpass import getpass
 import datetime as dt
 import numpy as np
 import random
@@ -125,8 +126,8 @@ else:
 
 # Make a program that asks a password.
 def password_match():
-  password_input = input('create a password: ')
-  confirm = input('re-enter you password: ')
+  password_input = getpass('create a password: ')
+  confirm = getpass('re-enter you password: ')
   if password_input == confirm:
     print('password successfully created')
   else:
