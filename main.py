@@ -306,11 +306,9 @@ countries = {
 print_dictionary_contents(countries)
 
 # Read a file and number every line
-file = open('fall.txt', 'r')
-i = 1
-for line in file:
-  print(i, ' ', line)
-  i += 1
+with open('fall.txt', 'r') as file:
+  for index, line in enumerate(file):
+    print(index, ' ', line)
 
 # Find out what the program does if the file doesn‟t exist.
 # FileNotFoundError: [Errno 2] No such file or directory
@@ -319,14 +317,12 @@ for line in file:
 # might not open
 
 # Write the text “Take it easy” to a file
-file = open('fall.txt', 'w')
-file.write('Take it easy')
-file.close()
+with open('fall.txt', 'w') as file:
+  file.write('Take it easy')
 
 # Write the line open(“text.txt”) to a file
-file = open('fall.txt', 'a')
-file.write('open(“text.txt”)')
-file.close()
+with open('fall.txt', 'a') as file:
+  file.write('open(“text.txt”)')
 
 # Given a tic-tac-toe board of 3x3, print every position
 tic_tac = [['X', 'O', 'O'], ['O', 'O', 'X'], ['X', 'X', 'O']]
